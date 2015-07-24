@@ -41,4 +41,4 @@ function __wp_kb_wc_init() {
 	new WP_Knowledge_Base_WooCommerce();
 }
 
-add_action( 'plugins_loaded', '__wp_kb_wc_init', 20 );
+add_action( 'plugins_loaded', '\WPKB\WooCommerce\__wp_kb_wc_init', 20 );
