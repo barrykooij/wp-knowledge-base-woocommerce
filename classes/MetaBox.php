@@ -2,7 +2,7 @@
 
 namespace WPKB\WooCommerce;
 
-class ProductLink {
+class MetaBox {
 
 	/**
 	 * Add dem hooks
@@ -39,7 +39,7 @@ class ProductLink {
 
 		// current product
 		$current = get_post_meta( $post->ID, 'wpkb-woocommerce-product', true );
-		
+
 		// loop, DOM, ad
 		if ( count( $products ) > 0 ) {
 			echo '<select name="wpkb-woocommerce-product" style="width: 100%">';

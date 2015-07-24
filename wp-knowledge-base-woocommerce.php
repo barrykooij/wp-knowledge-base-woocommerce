@@ -19,7 +19,8 @@ class WP_Knowledge_Base_WooCommerce {
 	 */
 	public function __construct() {
 		require_once( 'classes/Breadcrumbs.php' );
-		require_once( 'classes/ProductLink.php' );
+		require_once( 'classes/MetaBox.php' );
+		require_once( 'classes/Shortcode.php' );
 		$this->hooks();
 	}
 
@@ -28,14 +29,21 @@ class WP_Knowledge_Base_WooCommerce {
 	 */
 	private function hooks() {
 
-		// Breadcrumbs only on frontend
+		// frontend only
 		if ( ! is_admin() ) {
+
+			// breadcrumbs
 			$breadcrumbs = new Breadcrumbs();
 			add_action( 'wp', array( $breadcrumbs, 'handleHooks' ) );
+
+			// setup shortcode on frontend
+			$shortcode = new Shortcode();
+			$shortcode->setup();
+
 		}
 
 		// setup product link
-		$productLink = new ProductLink();
+		$productLink = new MetaBox();
 		$productLink->add_hooks();
 
 	}
