@@ -23,7 +23,11 @@ class Shortcode {
 			if ( $productID > 0 ) {
 				$product_url = get_permalink( $productID );
 				if ( '' !== $product_url ) {
-					// the wrapper div should not be here, but I can't override the template yet and want to use this in production \o/
+					/**
+					 * This is very Download Monitor specific now because we can't do proper template loading yet
+					 * @todo 'Get Extension' -> 'Get Product'
+					 * @todo Remove wrapper div
+					 */
 					?>
 					<div class="sidebar-doc-block">
 						<a href="<?php echo $product_url; ?>" class="button wpkb-woocommerce-product-button" title="<?php echo get_the_title(); ?>"><?php _e( 'Get Extension', 'wpkb-woocommerce' ); ?></a>
