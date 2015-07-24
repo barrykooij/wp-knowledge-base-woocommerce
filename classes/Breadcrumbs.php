@@ -9,19 +9,19 @@ class Breadcrumbs {
 	 *
 	 * Hook this into 'wp'
 	 */
-	public function fix_breadcrumbs() {
+	public function handleHooks() {
 		if ( is_singular( 'wpkb-article' ) || is_tax( 'wpkb-category' ) ) {
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 			remove_action( 'storefront_content_top', 'woocommerce_breadcrumb', 10 );
-			add_action( 'woocommerce_before_main_content', array( $this, 'ouput_breadcrumbs' ) );
-			add_action( 'storefront_content_top', array( $this, 'ouput_breadcrumbs' ) );
+			add_action( 'woocommerce_before_main_content', array( $this, 'output' ) );
+			add_action( 'storefront_content_top', array( $this, 'output' ) );
 		}
 	}
 
 	/**
 	 * Output the new breadcrumbs
 	 */
-	public function ouput_breadcrumbs() {
+	public function output() {
 
 		// get WooCommerce breadcrumbs args
 		$args = wp_parse_args( array(), apply_filters( 'woocommerce_breadcrumb_defaults', array(

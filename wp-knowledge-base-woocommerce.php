@@ -31,7 +31,7 @@ class WP_Knowledge_Base_WooCommerce {
 		// Breadcrumbs only on frontend
 		if ( ! is_admin() ) {
 			$breadcrumbs = new Breadcrumbs();
-			add_action( 'wp', array( $breadcrumbs, 'fix_breadcrumbs' ) );
+			add_action( 'wp', array( $breadcrumbs, 'handleHooks' ) );
 		}
 
 	}
