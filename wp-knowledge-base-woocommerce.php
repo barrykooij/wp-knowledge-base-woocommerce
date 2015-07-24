@@ -10,13 +10,16 @@
  License: GPL v2
 */
 
+namespace WPKB\WooCommerce;
+
 class WP_Knowledge_Base_WooCommerce {
 
 	/**
 	 * Constructor
 	 */
 	public function __construct() {
-		require_once( 'classes/class-breadcrumbs.php' );
+		require_once( 'classes/Breadcrumbs.php' );
+		require_once( 'classes/ProductLink.php' );
 		$this->hooks();
 	}
 
@@ -24,10 +27,13 @@ class WP_Knowledge_Base_WooCommerce {
 	 * Hooks
 	 */
 	private function hooks() {
+
+		// Breadcrumbs only on frontend
 		if ( ! is_admin() ) {
-			$breadcrumbs = new WPKBWC_Breadcrumbs();
+			$breadcrumbs = new Breadcrumbs();
 			add_action( 'wp', array( $breadcrumbs, 'fix_breadcrumbs' ) );
 		}
+
 	}
 }
 

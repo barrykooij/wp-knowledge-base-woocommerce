@@ -1,6 +1,8 @@
 <?php
 
-class WPKBWC_Breadcrumbs {
+namespace WPKB\WooCommerce;
+
+class Breadcrumbs {
 
 	/**
 	 * Replace WooCommerce breadcrumbs with WP Knowledge Base breadcrumbs on WP Knowledge Base pages
