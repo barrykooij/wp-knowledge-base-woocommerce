@@ -34,6 +34,10 @@ class WP_Knowledge_Base_WooCommerce {
 			add_action( 'wp', array( $breadcrumbs, 'handleHooks' ) );
 		}
 
+		// setup product link
+		$productLink = new ProductLink();
+		$productLink->add_hooks();
+
 	}
 }
 
