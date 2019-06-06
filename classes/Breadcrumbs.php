@@ -34,8 +34,7 @@ class Breadcrumbs {
 		) ) );
 
 		// build Crumbs
-		$crumbs = new \WPKB\Breadcrumbs\Crumbs( $GLOBALS['wpkb']->breadcrumbs->get_archive_page_id() );
-		$crumbs->build_crumbs();
+		$crumbs = new \WPKB\Breadcrumbs\Crumbs();
 
 		// replace &nbsp; and trim because WP KB breadcrumbs already adds spaces
 		$args['delimiter'] = trim( preg_replace( "/\s|&nbsp;/", ' ', $args['delimiter'] ) );
